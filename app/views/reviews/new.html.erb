@@ -1,3 +1,20 @@
-<h3>
-  Add a new review
-</h3>
+<section>
+  <h3>
+    Add a new review
+  </h3>
+  <%= form_for @review do |f| %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.label :score %>
+      <%= f.number_field :score %>
+    </p>
+    <%= f.submit "Save review" %>
+  <% end %>
+</section>
