@@ -17,13 +17,23 @@ class ReviewsController < ApplicationController
     @review.save
 
     # redirect
-
     redirect_to root_path
   end
 
   def show
     # individual review page
     @review = Review.find(params[:id])
+  end
+
+  def destroy
+    # find indivual review
+    @review = Review.find(params[:id])
+
+    # destroy
+    @review.destroy
+
+    # redirect to home page
+    redirect_to root_path
   end
 
 end
