@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
 
   def create
     # get form info and add to the database
-    @review = Review.new(params.require(:review).permit(:title, :body, :score))
+    @review = Review.new(review_form_params)
 
     # save to the database
     @review.save
@@ -46,9 +46,13 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     # update new info from form
-    @review.update(params.require(:review).permit(:title, :body, :score))
+    @review.update(review_form_params)
 
     redirect_to review_path(@review)
+  end
+
+  def review_form_params
+    params.require(:review).permit(:title, :body, :score)
   end
 
 end
