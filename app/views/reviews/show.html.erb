@@ -2,5 +2,6 @@
   <%= @review.title %>
   <%= simple_format @review.body %>
   <%= @review.score %> /10
+  <%= link_to "Edit this review", edit_review_path(@review) %>
   <%= link_to "Delete this review", @review, data: { 'turbo-method': :delete, 'turbo-confirm': "Are you sure?" } %>
 </section>

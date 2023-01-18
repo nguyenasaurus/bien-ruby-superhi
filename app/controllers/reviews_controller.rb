@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    # individual review page
+    # find individual review 
     @review = Review.find(params[:id])
   end
 
@@ -34,6 +34,21 @@ class ReviewsController < ApplicationController
 
     # redirect to home page
     redirect_to root_path
+  end
+
+  def edit
+    # find individual review (to edit)
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    # find individual review (to update)
+    @review = Review.find(params[:id])
+
+    # update new info from form
+    @review.update(params.require(:review).permit(:title, :body, :score))
+
+    redirect_to review_path(@review)
   end
 
 end
