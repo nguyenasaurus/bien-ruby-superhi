@@ -1,4 +1,9 @@
-<%= form_for @review, html: {class: "my-4 mx-2"} do |f| %>
+<%= form_for @review, data: { turbo: false }, html: { class: "my-4 mx-2" } do |f| %>
+  <% if @review.errors.any? %>
+    <% @review.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  <% end %>
   <p class="flex items-center mb-2 mx-auto">
     <%= f.label :title, class: "mr-2 w-12 font-semibold" %>
     <%= f.text_field :title, class: "rounded-sm border-gray-400" %>
@@ -12,7 +17,9 @@
     <%= f.text_area :body, class: "rounded-sm border-gray-400" %>
   </p>
   <p class="flex justify-between my-6">
-    <%= link_to "Cancel", cancel_path, class: "py-2 px-4 rounded-md bg-red-100 text-red-600" %>
+    <%= link_to "Cancel",
+    cancel_path,
+    class: "py-2 px-4 rounded-md bg-red-100 text-red-600" %>
     <%= f.submit "Save review", class: "py-2 px-4 rounded-md bg-teal-500 text-white" %>
   </p>
 <% end %>
