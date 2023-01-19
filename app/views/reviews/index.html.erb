@@ -1,5 +1,5 @@
 <ul>
   <% @reviews.each do |review| %>
-    <li> <%= link_to review.title, review_path(review) %></li>
+    <li class="text-teal-500"> <%= link_to review.title, review_path(review) %></li>
   <% end %>
 </ul>
