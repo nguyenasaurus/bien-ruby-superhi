@@ -1,7 +1,18 @@
-<section>
+<section class="w-full">
   <%= @review.title %>
   <%= simple_format @review.body %>
-  <%= @review.score %> /10
-  <%= link_to "Edit this review", edit_review_path(@review) %>
-  <%= link_to "Delete this review", @review, data: { 'turbo-method': :delete, 'turbo-confirm': "Are you sure?" } %>
+  <%= @review.score %>
+  /10
+  <p class="flex justify-between my-6">
+    <%= link_to "Edit this review",
+    edit_review_path(@review),
+    class: "py-2 px-4 rounded-md bg-teal-500 text-white" %>
+    <%= link_to "Delete this review",
+    @review,
+    data: {
+      "turbo-method": :delete,
+      "turbo-confirm": "Are you sure?"
+    },
+    class: "py-2 px-4 rounded-md bg-red-100 text-red-600" %>
+  </p>
 </section>

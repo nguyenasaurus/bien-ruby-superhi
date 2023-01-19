@@ -1,15 +1,18 @@
-<%= form_for @review do |f| %>
-  <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= form_for @review, html: {class: "my-4 mx-2"} do |f| %>
+  <p class="flex items-center mb-2 mx-auto">
+    <%= f.label :title, class: "mr-2 w-12 font-semibold" %>
+    <%= f.text_field :title, class: "rounded-sm border-gray-400" %>
   </p>
-  <p>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+  <p class="flex items-center mb-2">
+    <%= f.label :score, class: "mr-2 w-12 font-semibold" %>
+    <%= f.number_field :score, class: "rounded-sm border-gray-400" %>
   </p>
-  <p>
-    <%= f.label :score %>
-    <%= f.number_field :score %>
+  <p class="flex items-top mb-2">
+    <%= f.label :body, class: "mr-2 w-12 font-semibold" %>
+    <%= f.text_area :body, class: "rounded-sm border-gray-400" %>
   </p>
-  <%= f.submit "Save review" %>
+  <p class="flex justify-between my-6">
+    <%= link_to "Cancel", root_path, class: "py-2 px-4 rounded-md bg-red-100 text-red-600" %>
+    <%= f.submit "Save review", class: "py-2 px-4 rounded-md bg-teal-500 text-white" %>
+  </p>
 <% end %>
