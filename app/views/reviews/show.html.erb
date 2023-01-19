@@ -6,6 +6,9 @@
   <%= simple_format @review.body %>
   <%= @review.score %>
   /10
+  <% if @review.ambiance.present? %>
+    <p>Ambiance: <%= @review.ambiance %></p>
+  <% end %>
   <p class="flex justify-between my-6">
     <%= link_to "Edit this review",
     edit_review_path(@review),
