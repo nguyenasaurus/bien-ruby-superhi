@@ -1,6 +1,8 @@
 <% content_for :page_title, @review.title %>
 <section class="w-full">
   <%= @review.title %>
+  <%= @review.restaurant %>
+  <%= @review.cuisine %>
   <%= simple_format @review.body %>
   <%= @review.score %>
   /10
