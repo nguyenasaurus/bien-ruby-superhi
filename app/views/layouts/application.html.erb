@@ -9,22 +9,21 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <header>
+  <body class="relative h-screen">
+    <header class="bg-orange-50 px-4 py-8 flex justify-between items-center">
       <h1>
         <%= link_to root_path do %>
           <%= image_tag('bien-logo.svg', alt: "Bien Logo") %>
         <% end %>
       </h1>
-      <h2>Best restaurant reviews in Ireland</h2>
-      <nav>
+      <nav class="text-teal-500 font-bold">
         <%= link_to "Add a review", new_review_path %>
       </nav>
     </header>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
-    <footer>
+    <footer class="absolute bottom-0 text-gray-400 p-4">
       Copyright 2023 - Bien Restaurant Reviews
     </footer>
   </body>
